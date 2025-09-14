@@ -1,14 +1,24 @@
 type BinarySearchResult = { index: number, iterations: number };
 
 export class BinarySearch {
-  public static search(arr: number[], target: number): BinarySearchResult {
+  private arr: number[]
+
+  constructor(arr: number[]) {
+    this.arr = arr
+  }
+
+  public maxIterations(): number {
+    return Math.ceil(Math.log2(this.arr.length))
+  }
+
+  public search(target: number): BinarySearchResult {
     let bottomIndex = 0;
-    let topIndex = arr.length - 1;
+    let topIndex = this.arr.length - 1;
     let iterations = 0;
 
     while (bottomIndex <= topIndex) {
       const midIndex = Math.floor((bottomIndex + topIndex) / 2);
-      const midValue = arr[midIndex];
+      const midValue = this.arr[midIndex];
       iterations++;
 
       if (midValue === target) return { index: midIndex, iterations };
