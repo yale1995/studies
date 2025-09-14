@@ -1,0 +1,29 @@
+{
+  "name": "javascript-data-structure-and-algorithms",
+  "version": "1.0.0",
+  "description": "Implementação de estruturas de dados e algoritmos em TypeScript para fins educacionais.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "dev": "tsx src/index.ts",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "data-structures",
+    "algorithms",
+    "typescript",
+    "javascript",
+    "learning"
+  ],
+  "author": "Yale Araújo",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  }
+}
