@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { BinarySearch } from '@/structures/algorithms/searching/binary-search'
+import { BinarySearch } from '@/index'
 
 describe('Binary Search', () => {
   it('should return the index of the target value', () => {

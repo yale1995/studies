@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { InterpolationSearch } from '@/structures/algorithms/searching/interpolation-search'
-import { BinarySearch } from '@/structures/algorithms/searching/binary-search'
+import { BinarySearch } from '@/index'
 
 describe('Interpolation Search', () => {
   it('should return the index of the target value', () => {
