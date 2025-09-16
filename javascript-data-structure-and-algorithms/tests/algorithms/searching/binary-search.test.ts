@@ -16,7 +16,7 @@ describe('Binary Search', () => {
     const target = 6
     const binarySearch = new BinarySearch(arr)
     const result = binarySearch.search(target)
-    expect(result).toEqual({ index: -1, iterations: 3 })
+    expect(result).toEqual({ index: -1, iterations: 0 })
     expect(result.iterations).toBeLessThanOrEqual(binarySearch.maxIterations())
   })
 

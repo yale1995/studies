@@ -16,7 +16,7 @@ export class BinarySearch {
     let topIndex = this.arr.length - 1;
     let iterations = 0;
 
-    while (bottomIndex <= topIndex) {
+    while (bottomIndex <= topIndex && this.arr[bottomIndex] <= target && this.arr[topIndex] >= target) {
       const midIndex = Math.floor((bottomIndex + topIndex) / 2);
       const midValue = this.arr[midIndex];
       iterations++;
