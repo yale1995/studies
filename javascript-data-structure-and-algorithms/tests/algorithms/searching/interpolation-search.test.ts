@@ -1,8 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import { InterpolationSearch } from '@/structures/algorithms/searching/interpolation-search'
-import { BinarySearch } from '@/index'
+import { BinarySearch, InterpolationSearch } from '@/index'
 
-describe('Interpolation Search', () => {
+describe('Interpolation Search', () => {  
   it('should return the index of the target value', () => {
     const arr = [1, 2, 3, 4, 5]
     const target = 2

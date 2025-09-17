@@ -1,3 +1,6 @@
 // Searching
-export * from './structures/algorithms/searching/binary-search';
-export * from './structures/algorithms/searching/interpolation-search';
+export * from './algorithms/searching/binary-search';
+export * from './algorithms/searching/interpolation-search';
+
+// Structures
+export * from './structures/array';
