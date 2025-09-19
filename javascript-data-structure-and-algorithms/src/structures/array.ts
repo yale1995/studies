@@ -65,5 +65,9 @@ export class MyArray<T> {
 
     return newArray.items
   }
+
+  length() {
+    return this.items.length
+  }
   
 }
