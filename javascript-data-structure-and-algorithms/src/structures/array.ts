@@ -43,5 +43,26 @@ export class MyArray<T> {
     this.items = newArray.items
     return this.items
   }
+
+  pop() {
+    const newArray = new MyArray<T>([])
+
+    for (let i = 0; i < this.items.length - 1; i++) {
+      newArray.items[i] = this.items[i]
+    }
+
+    this.items = newArray.items
+    return this.items
+  }
+
+  map(callback: (item: T, index: number) => T) {
+    const newArray = new MyArray<T>([])
+
+    for (let i = 0; i < this.items.length; i++) {
+      newArray.items[i] = callback(this.items[i], i)
+    }
+
+    return newArray.items
+  }
   
 }
