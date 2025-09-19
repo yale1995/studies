@@ -44,7 +44,8 @@ describe("Array", () => {
 
   it("should pop an item", () => {
     const array = new MyArray([1, 2, 3, 4, 5]);
-    array.pop();
+    const result = array.pop();
+    expect(result).toEqual(5);
     expect(array.items).toEqual([1, 2, 3, 4]);
   });
 

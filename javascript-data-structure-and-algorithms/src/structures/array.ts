@@ -46,13 +46,14 @@ export class MyArray<T> {
 
   pop() {
     const newArray = new MyArray<T>([])
+    const lastItem = this.items[this.items.length - 1]
 
     for (let i = 0; i < this.items.length - 1; i++) {
       newArray.items[i] = this.items[i]
     }
 
     this.items = newArray.items
-    return this.items
+    return lastItem
   }
 
   map(callback: (item: T, index: number) => T) {
