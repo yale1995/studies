@@ -1,5 +1,5 @@
 export function hourglassSum(arr: number[][]) {
-  let highestSum = 0
+  let highestSum = Number.NEGATIVE_INFINITY
 
   for(let i = 0; i <= 3; i++ ) {
     for(let j = 0; j <= 3; j++ ) {
