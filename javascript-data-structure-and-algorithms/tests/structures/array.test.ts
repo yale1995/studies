@@ -51,7 +51,7 @@ describe("Array", () => {
 
   it("should map an array", () => {
     const array = new MyArray([1, 2, 3, 4, 5]);
-    const mappedArray = array.map((item, index) => item * 2);
+    const mappedArray = array.map((item) => item * 2);
     expect(mappedArray).toEqual([2, 4, 6, 8, 10]);
   });
 });

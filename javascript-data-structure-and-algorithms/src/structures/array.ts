@@ -1,73 +1,66 @@
-export class MyArray<T> {
-   items: T[]
+export class MyArray <T> {
+  items: T[];
+  size = 0;
 
-  constructor(items: T[]) {
-    this.items = items
+  constructor(arr: T[]) {
+    this.items = arr;
+    this.size = arr.length;
   }
 
-  unshift(...items: T[]) {
-    const inputSize = items.length
-    if (inputSize === 0) return this.items
-    
-    for(let i = this.items.length - 1; i >= 0; i--) {
+  push(...arr: T[]) {
+    const inputSize = arr.length;
+    for (let i = 0; i < inputSize; i++) {
+      this.items[this.size] = arr[i];
+      this.size++
+    }
+  }
+
+  unshift(...arr: T[]) {
+    const inputSize = arr.length
+    const arrSize = this.items.length
+
+    for(let i = arrSize - 1; i >= 0; i--) {
       this.items[i + inputSize] = this.items[i]
+      this.items[i] = arr[i]     
     }
 
-    for(let i = 0; i < inputSize; i++) {
-      this.items[i] = items[i]
-    }
-
-
-    return this.items
-  }
-
-  push(...items: T[]) {
-    const inputSize = items.length
-    const initialSize = this.items.length
-    if (inputSize === 0) return this.items
-
-    for(let i = 0; i < inputSize; i++) {
-      this.items[initialSize + i] = items[i]
-    }
-
-    return this.items
+    this.size = this.size + arr.length
   }
 
   shift() {
-    const newArray = new MyArray<T>([])
+    const arrSize = this.items.length
+    const firstIndex = this.items[0]
+    const aux = new MyArray<T>([])
 
-    for (let i = 0; i < this.items.length -1; i++) {
-      newArray.items[i] = this.items[i + 1]
+    for(let i = 1; i < arrSize; i++) {
+      aux.push(this.items[i]) 
     }
 
-    this.items = newArray.items
-    return this.items
+    this.items = aux.items
+    return firstIndex
   }
 
   pop() {
-    const newArray = new MyArray<T>([])
-    const lastItem = this.items[this.items.length - 1]
+    const arrSize = this.items.length
+    const lastIndex = this.items[arrSize - 1]
+    const aux = new MyArray<T>([])
 
-    for (let i = 0; i < this.items.length - 1; i++) {
-      newArray.items[i] = this.items[i]
+    for (let i = 0; i < arrSize - 1; i++) {
+      aux.push(this.items[i])
     }
 
-    this.items = newArray.items
-    return lastItem
+    this.items = aux.items
+    return lastIndex
   }
 
-  map(callback: (item: T, index: number) => T) {
-    const newArray = new MyArray<T>([])
+  map<U>(callback: (item: T, index: number) => U) {
+    const arrSize = this.size
+    const result = new MyArray<U>([])
 
-    for (let i = 0; i < this.items.length; i++) {
-      newArray.items[i] = callback(this.items[i], i)
+    for(let i = 0; i < arrSize; i++) {
+      result.push(callback(this.items[i], i))
     }
 
-    return newArray.items
+    return result.items
   }
-
-  length() {
-    return this.items.length
-  }
-  
 }
