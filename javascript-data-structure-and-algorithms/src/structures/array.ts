@@ -9,6 +9,7 @@ export class MyArray <T> {
 
   push(...arr: T[]) {
     const inputSize = arr.length;
+
     for (let i = 0; i < inputSize; i++) {
       this.items[this.size] = arr[i];
       this.size++
@@ -21,10 +22,13 @@ export class MyArray <T> {
 
     for(let i = arrSize - 1; i >= 0; i--) {
       this.items[i + inputSize] = this.items[i]
-      this.items[i] = arr[i]     
     }
 
-    this.size = this.size + arr.length
+    for(let i = 0; i < inputSize; i++) {
+      this.items[i] = arr[i]
+    }
+
+    this.size += inputSize
   }
 
   shift() {
@@ -37,6 +41,7 @@ export class MyArray <T> {
     }
 
     this.items = aux.items
+    this.size--
     return firstIndex
   }
 
@@ -49,6 +54,7 @@ export class MyArray <T> {
       aux.push(this.items[i])
     }
 
+    this.size--
     this.items = aux.items
     return lastIndex
   }
